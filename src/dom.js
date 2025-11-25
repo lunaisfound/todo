@@ -1,4 +1,4 @@
-import { todoList } from "./todoList";
+import { todoList } from "./todoList.js";
 
 const listContainer = document.querySelector("#todo-list");
 const form = document.querySelector("#todo-form");
@@ -12,9 +12,9 @@ export const DOMController = {
   handleSubmit(event) {
     event.preventDefault();
 
-    const title = document.querySelector("#title");
-    const dueDate = document.querySelector("#due-date");
-    const notes = document / querySelector("#notes");
+    const title = document.querySelector("#title").value;
+    const dueDate = document.querySelector("#due-date").value;
+    const notes = document.querySelector("#notes").value;
 
     todoList.add(title, dueDate, notes);
     form.reset();
@@ -38,14 +38,14 @@ export const DOMController = {
       }/>
         Completed
       </label>
-      <button class="delete". data-index="${index}">Delete</button>
+      <button class="delete" data-index="${index}">Delete</button>
       `;
       listContainer.appendChild(div);
     });
-    this.addListenters();
+    this.addListeners();
   },
 
-  addListenters() {
+  addListeners() {
     document.querySelectorAll("input[type='checkbox']").forEach((cb) => {
       cb.addEventListener("change", (e) => {
         const index = e.target.dataset.index;
