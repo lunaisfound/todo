@@ -9,6 +9,10 @@ export const todoList = {
     return todo;
   },
 
+  toggle(index) {
+    todos[index].toggle();
+  },
+
   delete(index) {
     todos.splice(index, 1);
   },
